@@ -4,9 +4,10 @@ from nilearn.image import load_img # basic image loading
 from nilearn.input_data import NiftiMasker # image masking and more!
 
 # set up basic directories
-data_dir = 'Documents\\fmri' # directory where subj_id folder exists
+# data_dir = 'Documents\\fmri' # directory where subj_id folder exists
+data_dir = 'fmri' # directory where subj_id folder exists
 subj_id = 'ff001' # subject ID in directory
-sess_id = 'sess2' # session ID in BOLD subdirectory
+sess_id = 'sess1' # session ID in BOLD subdirectory
 bold_dir = os.path.join(data_dir,subj_id,'bold',sess_id)
 ref_dir = os.path.join(data_dir,subj_id,'ref')
 
