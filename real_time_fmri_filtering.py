@@ -21,7 +21,7 @@ def fmri_filter(masked_data, num_runs, trs_per_run, base_trs, max_frame, sg, dt,
     a = np.ones(1)
     for r in range(num_runs):
         temp_data = masked_data[np.where(run_labels==r)]
-        if zs ==1:
+        if zs == 1:
             for n in range(trs_per_run):
                 real_time_temp = temp_data[0:n+1,:]
                 if n==base_trs-1:
@@ -39,8 +39,8 @@ def fmri_filter(masked_data, num_runs, trs_per_run, base_trs, max_frame, sg, dt,
                     processed = zscore(processed)
                     processed_real_time_data[trs_per_run*r:trs_per_run*r+n+1,:] = processed[0:n+1,:]
                 if n>base_trs-1:
-                    processed = signal.detrend(real_time_temp)
-                    processed = lfilter(b, a, processed)
+                    processed = signal.detrend(real_time_temp, axis=0)
+                    processed = lfilter(b, a, processed, axis=0)
                     processed = zscore(processed)
                     processed_real_time_data[trs_per_run*r+n,:] = processed[n,:]
         elif sg == 1:
@@ -55,16 +55,16 @@ def fmri_filter(masked_data, num_runs, trs_per_run, base_trs, max_frame, sg, dt,
                         framelength = n
                     else:
                         framelength = n-1
-                    sg_filter = savgol_filter(real_time_temp, framelength, 2)
+                    sg_filter = savgol_filter(real_time_temp, framelength, 2, axis=0)
                     processed = real_time_temp - sg_filter
-                    processed = lfilter(b, a, processed)
+                    processed = lfilter(b, a, processed, axis=0)
                     processed = zscore(processed)
                     processed_real_time_data[trs_per_run*r+n,:] = processed[n,:]
                 if n>base_trs-1 & n >= max_frame:
                     framelength = max_frame
-                    sg_filter = savgol_filter(real_time_temp, framelength, 2)
+                    sg_filter = savgol_filter(real_time_temp, framelength, 2, axis=0)
                     processed = real_time_temp - sg_filter
-                    processed = lfilter(b, a, processed)
+                    processed = lfilter(b, a, processed, axis=0)
                     processed = zscore(processed)
                     processed_real_time_data[trs_per_run*r+n,:] = processed[n,:]
     return processed_real_time_data
