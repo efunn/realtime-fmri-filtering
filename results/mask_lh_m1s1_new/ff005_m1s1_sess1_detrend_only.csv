@@ -1,0 +1,9 @@
+,clf_acc,roi_name,zs_type,zs_type_2,leave_out_runs,detrend,zs_proportion,trial_feature_trs,subj,session
+0,0.75,m1s1,baseline,none,1,realtime,1,"[4, 6]",ff005,1
+0,0.95,m1s1,baseline,none,1,realtime,1,"[4, 6]",ff005,1
+0,0.95,m1s1,baseline,none,1,realtime,1,"[4, 6]",ff005,1
+0,0.9,m1s1,baseline,none,1,realtime,1,"[4, 6]",ff005,1
+0,0.85,m1s1,baseline,none,1,realtime,1,"[4, 6]",ff005,1
+0,0.75,m1s1,baseline,none,1,realtime,1,"[4, 6]",ff005,1
+0,0.75,m1s1,baseline,none,1,realtime,1,"[4, 6]",ff005,1
+0,0.85,m1s1,baseline,none,1,realtime,1,"[4, 6]",ff005,1
